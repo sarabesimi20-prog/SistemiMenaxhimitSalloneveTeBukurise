@@ -1,4 +1,4 @@
-Tema : Sistemi për Menaxhimin e Salloneve të Bukurisë
+Tema : Sistemi per Menaxhimin e Salloneve te Bukurise
 
 
 
