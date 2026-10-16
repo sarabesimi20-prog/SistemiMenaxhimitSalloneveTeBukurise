@@ -12,6 +12,8 @@ Projekti synon zhvillimin e nje sistemi softuerik per menaxhimin e klienteve, te
 
 ## Kerkesat e projektit :
 
+Kerkesat per kete sistem jane:
+
 
 - Regjistrimi dhe menaxhimi i te dhenave te klienteve.
 
@@ -67,6 +69,37 @@ Projekti synon zhvillimin e nje sistemi softuerik per menaxhimin e klienteve, te
 
 - Trajtimi i gabimeve dhe shfaqja e mesazheve te kuptueshme per perdoruesin
 
+
+
+
+## Tekonologjite/arkitektura
+
+- frontend
+
+
+HTML , CSS dhe JavaScript
+
+Perdoren per te krijuar faqet e sistemit , formularet e klienteve , kalendarin e termineve dhe nderfaqen vizuale
+
+
+- backend
+
+
+PHP : perpunon rezervimet , kontrollon te dhenat e formulareve dhe komunikon me databazen 
+
+
+
+- database 
+
+
+MYSQL : ruhet informacioni per klientet , punonjesit , sherbimet , cmimet dhe termine
+
+
+
+- Git dhe GitHub 
+
+
+Perdoren per te ruajtur kodin , per te dokumentuar ndryshimet dhe per te treguar progresin gjate semestrit
 
 
 
