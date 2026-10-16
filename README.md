@@ -2,7 +2,7 @@
 
 
 
-# # Raporti 1 : 
+## Raporti Teknik 1 : 
 
 
 
@@ -10,7 +10,7 @@ Projekti synon zhvillimin e nje sistemi softuerik per menaxhimin e klienteve, te
 
 
 
-# # Kerkesat e projektit :
+## Kerkesat e projektit :
 
 
 Regjistrimi dhe menaxhimi i te dhenave te klienteve.
