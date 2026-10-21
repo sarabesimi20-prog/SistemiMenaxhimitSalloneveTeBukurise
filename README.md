@@ -199,6 +199,13 @@ Git përdoret për përcjelljen e ndryshimeve në kod, ndërsa GitHub për ruajt
 
 
 
+##	Modeli fillestar i databazës
+
+
+Databaza e sistemit për menaxhimin e salloneve të bukurisë përdoret për ruajtjen dhe organizimin e të dhënave për klientët, stafin, shërbimet dhe terminet e rezervuara.Struktura fillestare përbëhet nga katër tabela kryesore: Klientet, Stafi, Sherbimet dhe Terminet. Çdo tabelë ka një çelës primar (PK), ndërsa tabela Terminet përmban çelësa të huaj (FK) që mundësojnë lidhjen me tabelat e tjera.Relacionet janë të tipit një-me-shumë (1), pasi një klient, punonjës ose shërbim mund të lidhet me shumë termine. Ky model mundëson organizimin e saktë të të dhënave dhe menaxhimin më të lehtë të rezervimeve.
+
+
+
 
 
 
