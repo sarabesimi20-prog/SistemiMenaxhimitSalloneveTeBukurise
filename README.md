@@ -6,7 +6,7 @@
 
 
 
-Projekti synon zhvillimin e nje sistemi softuerik per menaxhimin e klienteve, termineve, sherbimeve dhe stafit te salloneve te bukurise. Qellimi eshte te lehtesohet organizimi i punes, te zvogelohen gabimet ne rezervimin e termineve dhe te mundesohet menaxhimi me efikas i sallonit.
+Projekti synon zhvillimin e një sistemi softuerik për menaxhimin e klientëve, termineve, shërbimeve dhe stafit të salloneve të bukurisë. Qëllimi është të lehtësohet organizimi i punës, të zvogëlohen gabimet në rezervimin e termineve dhe të mundësohet menaxhimi më efikas i sallonit . 
 
 
 
@@ -14,60 +14,155 @@ Projekti synon zhvillimin e nje sistemi softuerik per menaxhimin e klienteve, te
 
 Kerkesat per kete sistem jane:
 
+Kërkesat funksionale	
 
-- Regjistrimi dhe menaxhimi i te dhenave te klienteve.
 
-- Shtimi, ndryshimi dhe fshirja e sherbimeve te sallonit.
+Regjistrimi dhe menaxhimi i të dhënave të klientëve.
 
-- Regjistrimi i cmimeve dhe kohezgjatjes se secilit sherbim.
 
-- Rezervimi i termineve per sherbime te ndryshme.
 
-- Shfaqja e termineve te lira dhe atyre te rezervuara.
+Shtimi, ndryshimi dhe fshirja e shërbimeve të sallonit.
 
-- Ndryshimi i dates dhe ores se nje termini ekzistues.
 
-- Anulimi i rezervimeve nga administratori.
 
-- Parandalimi i rezervimit te dyfishte te te njejtit termin.
+Regjistrimi i çmimeve dhe kohëzgjatjes së secilit shërbim.
 
-- Menaxhimi i te dhenave te punonjesve te sallonit.
 
-- Caktimi i punonjesve per sherbime te caktuara.
 
-- Organizimi i orarit te punes se punonjesve.
+Rezervimi i termineve për shërbime të ndryshme.
 
-- Shfaqja e listes se termineve ditore dhe javore.
 
-- Kerkimi i klienteve sipas emrit ose numrit te telefonit.
 
-- Shikimi i historikut te termineve te klienteve.
+Shfaqja e termineve të lira dhe të rezervuara.
 
-- Perditesimi i te dhenave personale te klienteve.
 
-- Menaxhimi i statusit te terminit, si i rezervuar, i perfunduar ose i anuluar.
 
-- Regjistrimi dhe percjellja e pagesave per sherbimet e kryera.
+Ndryshimi i datës dhe orës së një termini ekzistues.
 
-- Llogaritja e kostos totale te sherbimeve te rezervuara.
 
-- Gjenerimi i raporteve per terminet dhe sherbimet e kryera.
 
- - Autentikimi i administratoreve permes emrit te perdoruesit dhe fjalekalimit.
+Anulimi i rezervimeve nga administratori.
 
-- Kufizimi i qasjes ne funksionet administrative sipas rolit te perdoruesit.
 
-- Validimi i te dhenave para ruajtjes ne databaze.
 
-- Ruajtja e te dhenave ne nje databaze te strukturuar.
+Parandalimi i rezervimeve që mbivendosen për të njëjtin punonjës.
 
-- Mbrojtja e te dhenave personale te klienteve.
 
-- Krijimi i nje nderfaqeje te thjeshte dhe te lehte per perdorim.
 
-- Mundesia e perdorimit te sistemit nga pajisje te ndryshme, si kompjuteri, tableti ose telefoni.
+Menaxhimi i të dhënave të punonjësve të sallonit.
 
-- Trajtimi i gabimeve dhe shfaqja e mesazheve te kuptueshme per perdoruesin
+
+
+Caktimi i punonjësve për shërbime të caktuara.
+
+
+
+Organizimi i orarit të punës së punonjësve.
+
+
+
+Shfaqja e listës së termineve ditore dhe javore.
+
+
+
+Kërkimi i klientëve sipas emrit ose numrit të telefonit.
+
+
+
+Shikimi i historikut të termineve të klientëve.
+
+
+
+Përditësimi i të dhënave personale të klientëve.
+
+
+
+Menaxhimi i statusit të terminit, si i rezervuar, i përfunduar ose i anuluar.
+
+
+
+Regjistrimi dhe përcjellja e pagesave për shërbimet e kryera.
+
+
+
+Llogaritja e kostos totale të shërbimeve të rezervuara.
+
+
+
+Gjenerimi i raporteve për terminet dhe shërbimet e kryera.
+
+
+
+Autentikimi i administratorit përmes emrit të përdoruesit dhe fjalëkalimit.
+
+
+
+Kontrollimi i të dhënave të formularëve para ruajtjes në databazë.
+
+
+
+Shfaqja e mesazheve të kuptueshme kur të dhënat e futura janë të pavlefshme.
+
+
+
+
+
+
+
+
+Kerkesat jofunksionale
+
+
+
+
+
+
+
+
+Fjalëkalimet duhet të ruhen në formë të hash-uar dhe jo si tekst i zakonshëm.
+
+
+
+Sistemi duhet të mbrojë të dhënat personale të klientëve nga qasja e paautorizuar.
+
+
+
+Funksionet administrative duhet të jenë të qasshme vetëm për përdoruesit e autorizuar.
+
+
+
+Ndërfaqja duhet të jetë e thjeshtë dhe e lehtë për përdorim.
+
+
+
+Sistemi duhet të jetë i përdorshëm në kompjuter, tablet dhe telefon.
+
+
+
+Sistemi duhet të funksionojë në versionet e fundit të shfletuesve Chrome dhe Edge.
+
+
+
+Listat e termineve duhet të shfaqen brenda 3 sekondave në kushtet e përcaktuara të testimit.
+
+
+
+Të dhënat duhet të ruhen në mënyrë të strukturuar dhe të sigurt në databazë.
+
+
+
+Kodi duhet të organizohet në mënyrë që mirëmbajtja e sistemit të jetë më e lehtë.
+
+
+
+Sistemi duhet të shfaqë mesazhe të kuptueshme kur ndodhin gabime.
+
+
+
+Komunikimi ndërmjet shfletuesit dhe serverit duhet të përdorë HTTPS në ambientin e publikimit.
+
+
+
 
 
 
@@ -77,29 +172,30 @@ Kerkesat per kete sistem jane:
 - frontend
 
 
-HTML , CSS dhe JavaScript
 
-Perdoren per te krijuar faqet e sistemit , formularet e klienteve , kalendarin e termineve dhe nderfaqen vizuale
+HTML, CSS dhe JavaScript përdoren për krijimin e ndërfaqes së përdoruesit, formularëve për regjistrimin e klientëve, shfaqjen e termineve dhe paraqitjen vizuale të sistemit. Këto teknologji janë zgjedhur për të krijuar një ndërfaqe të qartë dhe të lehtë për përdorim.
+
+
 
 
 - backend
 
 
-PHP : perpunon rezervimet , kontrollon te dhenat e formulareve dhe komunikon me databazen 
+ PHP përdoret për përpunimin e kërkesave të sistemit, validimin e të dhënave, menaxhimin e rezervimeve dhe komunikimin me databazën. Është zgjedhur për të realizuar logjikën e aplikacionit dhe funksionet kryesore të tij.
 
 
 
 - database 
 
 
-MYSQL : ruhet informacioni per klientet , punonjesit , sherbimet , cmimet dhe termine
+	MySQL përdoret për ruajtjen dhe organizimin e të dhënave për klientët, punonjësit, shërbimet dhe terminet. Është zgjedhur për organizimin e të dhënave në tabela dhe krijimin e relacioneve ndërmjet tyre.
 
 
 
 - Git dhe GitHub 
 
 
-Perdoren per te ruajtur kodin , per te dokumentuar ndryshimet dhe per te treguar progresin gjate semestrit
+Git përdoret për përcjelljen e ndryshimeve në kod, ndërsa GitHub për ruajtjen e repository-t dhe dokumentimin e progresit të projektit gjatë semestrit.
 
 
 
