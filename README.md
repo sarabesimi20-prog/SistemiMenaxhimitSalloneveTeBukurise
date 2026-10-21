@@ -207,6 +207,19 @@ Databaza e sistemit për menaxhimin e salloneve të bukurisë përdoret për rua
 
 
 
+## Plani i punës 
+
+
+
+Deri te Raporti Teknik 2, planifikohet të realizohen këto aktivitete:
+Krijimi i databazës në MySQL dhe i tabelave kryesore për klientët, stafin, shërbimet dhe terminet.
+Zhvillimi i backend-it me PHP për përpunimin e kërkesave të sistemit.
+Implementimi i funksioneve kryesore për regjistrimin dhe menaxhimin e klientëve, shërbimeve dhe termineve.
+Krijimi i API-ve kryesore për komunikimin ndërmjet frontend-it dhe backend-it.
+Testimi i funksioneve të implementuara me të dhëna testuese.
+Dokumentimi i progresit dhe ruajtja e ndryshimeve në GitHub.
+
+
 
 
 
