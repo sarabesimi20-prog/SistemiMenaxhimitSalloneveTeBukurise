@@ -95,8 +95,7 @@ $serviceDonut = 'conic-gradient(#eee5da 0deg 360deg)';
 
 try {
     /*
-     * 1. FINANCAT
-     * Vetëm pagesat me status "Paguar" llogariten si të ardhura.
+     1.financat
      */
     $stmt = $pdo->prepare(
         "SELECT
@@ -154,7 +153,7 @@ try {
     $stats['refunded_payments'] = (int)($paymentStats['refunded_count'] ?? 0);
 
     /*
-     * 2. SHPENZIMET
+     2.shpenzimet
      */
     $stmt = $pdo->prepare(
         'SELECT
@@ -177,7 +176,7 @@ try {
     $stats['balance'] = $stats['income'] - $stats['expenses'];
 
     /*
-     * 3. STATUSI I TERMINEVE
+    3.statusi i termineve
      */
     $stmt = $pdo->prepare(
         "SELECT
@@ -219,7 +218,7 @@ try {
     }
 
     /*
-     * 4. SHERBIMET ME TE KERKUARA
+     4.sherbimet me te kerkuara
      */
     $stmt = $pdo->prepare(
         'SELECT
@@ -244,7 +243,7 @@ try {
     $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     /*
-     * 5. PERFORMANCA E STAFIT
+    5.performanca e stafit
      */
     $stmt = $pdo->prepare(
         "SELECT
@@ -297,7 +296,7 @@ try {
     $staffRows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     /*
-     * 6. TE ARDHURAT SIPAS PUNONJESIT
+     6.te ardhurat sipas punojsit
      */
     $stmt = $pdo->prepare(
         "SELECT
@@ -331,9 +330,7 @@ try {
     unset($staff);
 
     /*
-     * 7. TE DHENAT E GRAFIKUT FINANCIAR
-     * Intervalet deri në 45 ditë shfaqen ditore.
-     * Intervalet më të gjata shfaqen sipas muajve.
+     te dhenat e grafikut financiar
      */
     if ($chartMode === 'daily') {
         $stmt = $pdo->prepare(
@@ -457,7 +454,7 @@ try {
     }
 
     /*
-     * 8. EKSPORTI CSV
+     * eksporti CVS 
      */
     if (($_GET['export'] ?? '') === 'csv') {
         $exportRows = [];
@@ -555,7 +552,7 @@ try {
     }
 }
 
-/* PERIUDHAT E SHPEJTA */
+/* periudhat e shpejta*/
 $quickPeriods = [];
 
 $quickPeriods['Sot'] = [
@@ -670,7 +667,7 @@ a {
     min-height: 100vh;
 }
 
-/* SIDEBAR */
+/* sidebari */
 .sidebar {
     width: 250px;
     flex-shrink: 0;
@@ -722,7 +719,7 @@ a {
     padding-left: 11px;
 }
 
-/* FAQJA E RAPORTEVE */
+/* faqja e raportev */
 .main {
     min-width: 0;
     flex: 1;
@@ -995,7 +992,7 @@ a {
     font-weight: 600;
 }
 
-/* PANELET DHE GRAFIKU */
+/* panelet dhe grafiku */
 .panel {
     min-width: 0;
     margin-bottom: 15px;
@@ -1122,7 +1119,7 @@ a {
     white-space: nowrap;
 }
 
-/* ANALITIKA */
+/* analitike*/
 .analytics-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, .95fr);
