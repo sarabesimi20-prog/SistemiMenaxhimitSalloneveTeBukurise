@@ -287,7 +287,7 @@ $displayCount = count($sherbimet);
     color: #fff;
 }
 
-        /* FAQJA */
+        /* faqja*/
         .main {
             min-width: 0;
             flex: 1;
@@ -400,7 +400,7 @@ $displayCount = count($sherbimet);
             font-size: 11px;
         }
 
-        /* FORMULARI */
+        /* formulari */
         .form-panel {
             margin-bottom: 28px;
             padding: 25px;
@@ -467,7 +467,7 @@ $displayCount = count($sherbimet);
             box-shadow: 0 0 0 2px #b0926c20;
         }
 
-        /* LISTA HORIZONTALE */
+        /* lista horizontale */
         .catalog-head {
             display: flex;
             justify-content: space-between;
