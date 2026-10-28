@@ -5,3 +5,4 @@
 /admin/uploads/
 /test-db.php
 /admin/krijo_admin.php
+!/database/schema.sql
