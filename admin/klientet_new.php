@@ -27,7 +27,7 @@ $formData = [
 $isAdding = isset($_GET['shto']);
 
 
- // Përpunimi i formularit.
+ // Perpunimi i formularit.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $action = $_POST['action'] ?? '';
@@ -97,7 +97,7 @@ if (isset($_GET['profile'])) {
     }
 }
 
-// Merr listën dhe statistikat.
+// Merr listen dhe statistikat.
 $data = $controller->index();
 
 function escapeClientPage(mixed $value): string
