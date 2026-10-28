@@ -38,9 +38,8 @@ $mesazhi = '';
 $llojiMesazhit = 'success';
 
 /*
-|--------------------------------------------------------------------------
-| VEPRIMET E FORMULARËVE
-|--------------------------------------------------------------------------
+
+| veprimet e formularve
 */
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -245,9 +244,7 @@ if (isset($_GET['success'])) {
 }
 
 /*
-|--------------------------------------------------------------------------
-| FILTRAT
-|--------------------------------------------------------------------------
+| filtrat
 */
 
 $kerkimi = trim((string) ($_GET['q'] ?? ''));
@@ -266,9 +263,7 @@ if (!in_array($filtriMetodes, $metodatLejuara, true)) {
 }
 
 /*
-|--------------------------------------------------------------------------
-| STATISTIKAT FINANCIARE
-|--------------------------------------------------------------------------
+|statistikat financiare
 */
 
 $stmt = $pdo->query(
@@ -305,9 +300,7 @@ $nePritje = (float) ($statistikat['ne_pritje'] ?? 0);
 $numriPaguar = (int) ($statistikat['numri_paguar'] ?? 0);
 
 /*
-|--------------------------------------------------------------------------
-| GRAFIKU: GJASHTË MUAJT E FUNDIT
-|--------------------------------------------------------------------------
+| Grafiku per 6 muajt e fundit
 */
 
 $muajt = [];
@@ -366,9 +359,7 @@ $maxGrafikut = max(
 );
 
 /*
-|--------------------------------------------------------------------------
-| TERMINE QË MUND TË REGJISTROHEN SI PAGESA
-|--------------------------------------------------------------------------
+termine qe mund te regjistrohen si pagesa
 */
 
 $stmt = $pdo->query(
@@ -396,9 +387,7 @@ $stmt = $pdo->query(
 $terminetPaPagese = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 /*
-|--------------------------------------------------------------------------
-| HISTORIA E PAGESAVE
-|--------------------------------------------------------------------------
+historia e pagesave
 */
 
 $sql = "
@@ -1528,7 +1517,7 @@ $csrfToken = $_SESSION['csrf_pagesat'];
 </div>
 
 <script>
-    // Plotëso automatikisht çmimin sipas shërbimit të terminit.
+    // Ploteso automatikisht qmimin sipas sherbimit
     const terminiSelect = document.getElementById('termin_id');
     const shumaInput = document.getElementById('shuma');
 
