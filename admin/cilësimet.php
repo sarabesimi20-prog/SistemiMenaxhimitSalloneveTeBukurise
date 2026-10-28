@@ -3,7 +3,6 @@ session_start();
 
 require_once __DIR__ . '/../config/database.php';
 
-/* LUMIÈRE Beauty Studio - Cilësimet */
 
 $dbConnection = null;
 
@@ -37,7 +36,6 @@ $settings = [
 $message = '';
 $messageType = '';
 
-/* Leximi i cilësimeve ekzistuese */
 
 if ($dbConnection) {
     try {
@@ -65,7 +63,7 @@ if ($dbConnection) {
     $messageType = 'error';
 }
 
-/* Ruajtja e formularit */
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $dbConnection) {
     $settings['emri_studios'] = trim($_POST['emri_studios'] ?? '');
