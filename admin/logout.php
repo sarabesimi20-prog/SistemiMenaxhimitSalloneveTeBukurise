@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// Pastro të dhënat e sesionit
+// Pastro te dhenat e sesionit
 $_SESSION = [];
 
-// Fshije cookie-n e sesionit
+// Fshije cookie e sesionit
 if (ini_get('session.use_cookies')) {
     $params = session_get_cookie_params();
 
