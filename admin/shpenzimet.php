@@ -87,7 +87,7 @@ try {
             exit;
         }
 
-        /* REGJISTRIMI DHE NDRYSHIMI */
+        /* regjistrimi dhe ndryshimi  */
         if ($action === 'shto' || $action === 'ndrysho') {
             $showForm = true;
 
@@ -257,7 +257,7 @@ try {
         }
     }
 
-    /* MARRJA E TË DHËNAVE PËR NDRYSHIM */
+    /* marrja e te dhenave per ndryshim */
     if (isset($_GET['edit'])) {
         $editId = filter_var(
             $_GET['edit'],
@@ -289,7 +289,7 @@ try {
     $error = 'Ndodhi një gabim gjatë ruajtjes në databazë. Kontrollo tabelën shpenzimet.';
 }
 
-/* KËRKIMI DHE FILTRAT */
+/* kerkimi dhe filtrat*/
 $search = trim($_GET['kerko'] ?? '');
 $categoryFilter = trim($_GET['kategoria'] ?? '');
 $dateFrom = trim($_GET['nga'] ?? '');
@@ -307,7 +307,7 @@ $orderOptions = [
 $orderBy = $orderOptions[$sort] ?? $orderOptions['data_ri'];
 
 try {
-    /* STATISTIKAT KRYESORE */
+    /* statistikat kryesore */
     $stmt = $pdo->query(
         "SELECT
             COALESCE(
@@ -353,7 +353,7 @@ try {
         $stmt->fetch(PDO::FETCH_ASSOC) ?: []
     );
 
-    /* KATEGORIA ME SHUMË SHPENZIME KËTË MUAJ */
+    /* kategoria me shume shpenzime ket muaj */
     $stmt = $pdo->query(
         "SELECT kategoria, SUM(shuma) AS total
          FROM shpenzimet
@@ -372,7 +372,7 @@ try {
     $stats['kategoria_kryesore'] =
         $topCategory['kategoria'] ?? '—';
 
-    /* TË DHËNAT PËR GRAFIKUN MUJOR */
+    /* te dhenat per grafikun mujor  */
     $stmt = $pdo->query(
         "SELECT
             DATE_FORMAT(data_shpenzimit, '%Y-%m') AS muaji,
@@ -428,7 +428,7 @@ try {
         ];
     }
 
-    /* NDËRTIMI I FILTRAVE */
+    /* ndertimi i filtrave */
     $where = [];
     $params = [];
 
@@ -723,7 +723,7 @@ h1 {
     border-color: #efd2ca;
 }
 
-/* STATISTIKAT */
+/* statistika */
 .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -770,7 +770,7 @@ h1 {
     overflow-wrap: anywhere;
 }
 
-/* GRAFIKU DHE PËRMBLEDHJA */
+/* grafiku dhe permbledhja */
 .content-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) minmax(280px, .85fr);
@@ -967,7 +967,7 @@ h1 {
     margin-top: 20px;
 }
 
-/* FILTRAT */
+/* filtrat*/
 .toolbar {
     display: grid;
     grid-template-columns:
@@ -993,7 +993,7 @@ h1 {
     font-size: 12px;
 }
 
-/* TABELA */
+/* tabela */
 .table-wrap {
     width: 100%;
     overflow-x: auto;
