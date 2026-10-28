@@ -5,12 +5,8 @@ session_start();
 require_once __DIR__ . '/../config/database.php';
 
 /*
-|--------------------------------------------------------------------------
-| LUMIÈRE BEAUTY STUDIO - Menaxhimi i termineve
-|--------------------------------------------------------------------------
 | Përdor tabelat ekzistuese:
 | terminet, klientet, sherbimet, stafi
-|--------------------------------------------------------------------------
 */
 
 $pageTitle = 'Menaxhimi i termineve';
@@ -53,7 +49,7 @@ if (!empty($_SESSION['appointment_flash'])) {
     unset($_SESSION['appointment_flash']);
 }
 
-// Klientët, shërbimet dhe stafi për formularin
+// klientet sherbimet dhe stafi formulari
 $klientet = $pdo->query(
     "SELECT klient_id, emri, mbiemri
      FROM klientet
@@ -72,7 +68,7 @@ $stafi = $pdo->query(
      ORDER BY emri, mbiemri"
 )->fetchAll();
 
-// Përpunimi i formularëve
+// perpunimi i formularve
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tokenPost = $_POST['csrf_token'] ?? '';
 
@@ -126,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
             }
 
-            // Kontrollo nëse klienti, punonjësja dhe shërbimi ekzistojnë
+            // kotrollo nese klienti apo punojsi egzistojne
             $check = $pdo->prepare(
                 "SELECT
                     (SELECT COUNT(*) FROM klientet WHERE klient_id = :kid) AS klient_ok,
@@ -154,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
             }
 
-            // Kohëzgjatja e shërbimit
+            // kohezgjatja e sherbimit
             $durationQuery = $pdo->prepare(
                 "SELECT kohezgjatja_min
                  FROM sherbimet
@@ -175,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
             }
 
-            // Kontrollo përplasje të termineve të së njëjtës punonjëse
+            // Kontrollo perpjlaset e termineve
             $conflict = $pdo->prepare(
                 "SELECT COUNT(*)
                  FROM terminet t
@@ -198,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ->modify('+' . $duration . ' minutes')
                 ->format('H:i:s');
 
-            // Ora e përfundimit duhet të jetë më vonë se ora e fillimit.
+            
             // Përfshihen edhe terminet që kalojnë mesnatën.
             $oraFillimitDate = new DateTimeImmutable($data . ' ' . $ora);
             $oraFunditDate = $oraFillimitDate->modify('+' . $duration . ' minutes');
@@ -402,7 +398,7 @@ $listQuery = $pdo->prepare($sql);
 $listQuery->execute($params);
 $terminet = $listQuery->fetchAll();
 
-// Statistika për faqen
+// Statistika per faqen
 $totalTermineve = (int) $pdo->query(
     "SELECT COUNT(*) FROM terminet"
 )->fetchColumn();
