@@ -56,9 +56,9 @@ $stats = [
     'levizje_muaj' => 0
 ];
 
-/* =====================================================
+/*
    VEPRIMET: PRODUKTE, STATUS DHE LEVIZJE STOKU
-   ===================================================== */
+    */
 
 try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -89,7 +89,7 @@ try {
             exit;
         }
 
-        /* REGJISTRIMI / NDRYSHIMI I PRODUKTIT */
+        /* regjistrimi /ndryshimi i produktit */
         if (
             $action === 'shto_produkt' ||
             $action === 'ndrysho_produkt'
@@ -307,7 +307,7 @@ try {
             exit;
         }
 
-        /* HYRJE, DALJE OSE KORRIGJIM I STOKUT */
+        /*hyrje daljet ose korrigjimi i stokit */
         if ($action === 'levizje_stoku') {
             $showMovementForm = true;
 
@@ -398,7 +398,7 @@ try {
                 $newStock = $currentStock - $quantity;
 
             } else {
-                /* KORRIGJIMI VENDOS SASINË RE REALE */
+                /* korrigjimi vendos sasin reale */
                 $newStock = $quantity;
                 $movementQuantity = $newStock - $currentStock;
 
@@ -464,7 +464,7 @@ try {
     $error = 'Ndodhi një gabim. Kontrollo të dhënat dhe provo përsëri.';
 }
 
-/* LEXIMI I PRODUKTIT QË PO NDRYSHOHET */
+/* leximi i produktit qe ndryshohet */
 if (isset($_GET['edit']) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
     $editId = filter_var($_GET['edit'], FILTER_VALIDATE_INT);
 
@@ -495,7 +495,7 @@ if (isset($_GET['edit']) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
     }
 }
 
-/* FILTRAT */
+/* filtra */
 $search = trim($_GET['kerko'] ?? '');
 $categoryFilter = trim($_GET['kategoria'] ?? '');
 $stockFilter = $_GET['stoku'] ?? 'te_gjitha';
@@ -541,7 +541,7 @@ try {
 
     $stats['levizje_muaj'] = (int)$stmt->fetchColumn();
 
-    /* KATEGORITË */
+    /* kategorit */
     $stmt = $pdo->query(
         "SELECT DISTINCT kategoria
          FROM produktet
@@ -552,7 +552,7 @@ try {
 
     $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-    /* PRODUKTET PËR KARTELAT */
+    /* produktet per kartela */
     $where = [];
     $params = [];
 
@@ -608,7 +608,7 @@ try {
     $stmt->execute($params);
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    /* PRODUKTET PËR LËVIZJET */
+    /* Produktet per te levizur */
     $stmt = $pdo->query(
         'SELECT produkt_id, emri, sasia, aktiv
          FROM produktet
@@ -617,7 +617,7 @@ try {
 
     $movementProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    /* HISTORIKU */
+    /* historiku */
     $stmt = $pdo->query(
         'SELECT
             l.levizja_id,
@@ -636,7 +636,7 @@ try {
 
     $movementHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    /* PARALAJMËRIMET E STOKUT — PAVARËSISHT FILTRAVE */
+    /* paralajmrimet e stokut  */
     $stmt = $pdo->query(
         'SELECT produkt_id, emri, sasia, stoku_minimal, kategoria
          FROM produktet
@@ -752,10 +752,7 @@ a {
     padding-left: 11px;
 }
 
-/* ================================================
-   INVENTARI — BEAUTY STOCKROOM
-   Dizajn i freskët: sage, portokalli, lilac
-   ================================================ */
+
 
 .main {
     --brown: #243e32;
@@ -907,7 +904,7 @@ h1 {
     border-color: #efd2ca;
 }
 
-/* STATISTIKAT */
+
 .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1023,7 +1020,7 @@ h1 {
     line-height: 1.6;
 }
 
-/* ALARMET E STOKUT */
+
 .alert-list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1101,7 +1098,6 @@ h1 {
     border-color: #87ac7e;
 }
 
-/* FORMULARI */
 .fields {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1158,7 +1154,7 @@ h1 {
     margin-top: 20px;
 }
 
-/* KARTELAT E PRODUKTEVE — STOCKROOM */
+/* kartelat e produkteve */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1463,7 +1459,7 @@ tbody tr:hover {
     color: #996322;
 }
 
-/* GJENDJET BOSHE */
+
 .empty {
     grid-column: 1 / -1;
     padding: 42px 20px;
@@ -1481,7 +1477,7 @@ tbody tr:hover {
     font: 400 23px Georgia, serif;
 }
 
-/* FOOTER */
+/*footeri */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -1493,7 +1489,7 @@ tbody tr:hover {
     font: italic 12px Georgia, serif;
 }
 
-/* RESPONSIVE */
+/* responsive faqja*/
 @media (max-width: 1350px) {
     .stats {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1595,7 +1591,7 @@ tbody tr:hover {
         flex-direction: column;
     }
 }
-/* PALETA E PËRBASHKËT E LUMIÈRE BEAUTY STUDIO */
+/* ngjyra e perbashket nuancat*/
 
 .main {
     --brown: #302820;
@@ -1609,7 +1605,7 @@ tbody tr:hover {
     color: #302820;
 }
 
-/* Header elegant, pa ngjyra të huaja */
+/* Headeri */
 .main .hero {
     border: 1px solid #eae2d8;
     background: linear-gradient(135deg, #fffdf9, #f3eee7);
@@ -1663,7 +1659,7 @@ tbody tr:hover {
     color: #302820;
 }
 
-/* Paralajmërimet e stokut */
+/* Paralajmerimet e stokut */
 .main .alert-item {
     border-color: #eae2d8;
     background: #fffdf9;
