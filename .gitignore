@@ -1,0 +1,7 @@
+﻿/config/database.php
+.env
+*.log
+*.sql
+/admin/uploads/
+/test-db.php
+/admin/krijo_admin.php

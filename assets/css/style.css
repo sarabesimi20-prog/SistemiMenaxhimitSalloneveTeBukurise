@@ -1,0 +1,331 @@
+
+/* LUMIÈRE BEAUTY STUDIO */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4ee;
+    color: #342a23;
+}
+
+.site-header {
+    width: 100%;
+    min-height: 90px;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background-color: #f8f4ee;
+    border-bottom: 1px solid #e8ded2;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #49372b;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    letter-spacing: 5px;
+    white-space: nowrap;
+}
+
+.logo span {
+    margin-top: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #49372b;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #ad8967;
+}
+
+.booking-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 22px;
+    background-color: #ad8967;
+    color: #ffffff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.booking-button:hover {
+    background-color: #89694d;
+}
+
+.booking-button span {
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .site-header {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .main-nav {
+        gap: 14px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .booking-button {
+        padding: 13px 17px;
+    }
+}
+
+/* HERO SECTION */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 540px;
+    background-color: #eee3d6;
+}
+
+.hero-content {
+    padding: 90px 10% 70px 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.eyebrow {
+    color: #a38568;
+    font-size: 10px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(45px, 5vw, 76px);
+    font-weight: normal;
+    line-height: 1.04;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    color: #75675b;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+.hero-button {
+    margin-bottom: 24px;
+}
+
+.hero-note {
+    color: #9a8067;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.hero-image {
+    min-height: 540px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 540px;
+    display: block;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+/* SERVICES SECTION */
+
+.services {
+    padding: 80px 6%;
+    background-color: #f8f4ee;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2,
+.about h2,
+.booking h2,
+.contact h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.service-card {
+    min-height: 145px;
+    padding: 28px 18px;
+    border: 1px solid #e6dbcf;
+    background-color: #fdfaf6;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    background-color: #eee3d6;
+}
+
+.service-card h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #817266;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    padding: 90px 12%;
+    text-align: center;
+    background-color: #e7d8c8;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+.about > p:last-child,
+.booking > p:not(.eyebrow),
+.contact > p:not(.eyebrow) {
+    max-width: 540px;
+    margin: 0 auto;
+    color: #75675b;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* BOOKING SECTION */
+
+.booking {
+    padding: 85px 20px;
+    text-align: center;
+    background-color: #f8f4ee;
+}
+
+.booking > p:not(.eyebrow) {
+    margin-top: 18px;
+    margin-bottom: 25px;
+}
+
+.booking .booking-button {
+    display: inline-flex;
+}
+
+/* CONTACT SECTION */
+
+.contact {
+    padding: 70px 20px;
+    text-align: center;
+    background-color: #eee3d6;
+}
+
+.contact h2 {
+    margin-bottom: 18px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1000px) {
+    .service-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hero-content {
+        padding: 60px 8%;
+    }
+}
+
+@media (max-width: 700px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding: 65px 8%;
+    }
+
+    .hero-image,
+    .hero-image img {
+        min-height: 400px;
+        max-height: 500px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services {
+        padding: 60px 5%;
+    }
+}
+
+@media (max-width: 420px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

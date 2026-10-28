@@ -1,0 +1,339 @@
+
+/* =========================================
+   LUMIÈRE BEAUTY STUDIO
+   CLIENT INTELLIGENCE
+   ========================================= */
+
+.client-intelligence {
+    --client-cream: #f7f4ef;
+    --client-paper: #fffdf9;
+    --client-brown: #302820;
+    --client-muted: #8b8176;
+    --client-accent: #947c64;
+    --client-line: #eae2d8;
+    --client-pale: #eee5da;
+
+    color: var(--client-brown);
+    font-family: "Segoe UI", Arial, sans-serif;
+    width: 100%;
+}
+
+.client-intelligence * {
+    box-sizing: border-box;
+}
+
+.client-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.client-eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--client-accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.client-heading h1 {
+    margin: 0;
+    font: 400 clamp(30px, 4vw, 46px)/1.15 Georgia, serif;
+    letter-spacing: -1px;
+}
+
+.client-heading h1 span {
+    color: var(--client-accent);
+}
+
+.client-heading p,
+.client-directory-heading p {
+    margin: 12px 0 0;
+    color: var(--client-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.client-primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid var(--client-brown);
+    border-radius: 5px;
+    background: var(--client-brown);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    transition: background .2s, transform .2s;
+    white-space: nowrap;
+}
+
+.client-primary-button:hover {
+    background: #514438;
+    transform: translateY(-1px);
+}
+
+.client-statistics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.client-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-height: 112px;
+    padding: 23px;
+    border: 1px solid var(--client-line);
+    border-radius: 9px;
+    background: var(--client-paper);
+    transition: box-shadow .2s, transform .2s;
+}
+
+.client-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px #3028200a;
+}
+
+.client-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--client-pale);
+    color: var(--client-accent);
+    font-size: 23px;
+}
+
+.client-stat-card p {
+    margin: 0 0 7px;
+    color: var(--client-muted);
+    font-size: 10px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.client-stat-card strong {
+    font: 400 30px Georgia, serif;
+}
+
+.client-directory {
+    padding: 25px;
+    border: 1px solid var(--client-line);
+    border-radius: 9px;
+    background: var(--client-paper);
+}
+
+.client-directory-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 23px;
+}
+
+.client-directory-heading h2 {
+    margin: 0;
+    font: 400 28px Georgia, serif;
+}
+
+.client-directory-heading p {
+    margin-top: 7px;
+}
+
+.client-result-count {
+    color: var(--client-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.client-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.client-search input {
+    flex: 1;
+    min-width: 0;
+    min-height: 43px;
+    padding: 10px 13px;
+    border: 1px solid var(--client-line);
+    border-radius: 5px;
+    outline: none;
+    background: #fff;
+    color: var(--client-brown);
+    font-size: 12px;
+}
+
+.client-search input:focus {
+    border-color: var(--client-accent);
+    box-shadow: 0 0 0 3px #947c6417;
+}
+
+.client-search button {
+    min-height: 43px;
+    padding: 0 19px;
+    border: 1px solid var(--client-brown);
+    border-radius: 5px;
+    background: var(--client-brown);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.client-search button:hover {
+    background: #514438;
+}
+
+.client-search > a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--client-muted);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.client-search > a:hover {
+    color: var(--client-brown);
+}
+
+.client-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--client-line);
+    border-radius: 6px;
+}
+
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.client-table thead {
+    background: var(--client-pale);
+}
+
+.client-table th {
+    padding: 15px 14px;
+    color: #6f6255;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+
+.client-table td {
+    padding: 16px 14px;
+    border-top: 1px solid var(--client-line);
+    font-size: 12px;
+}
+
+.client-table tbody tr {
+    transition: background .2s;
+}
+
+.client-table tbody tr:hover {
+    background: #faf7f2;
+}
+
+.client-table td strong {
+    display: block;
+    font-weight: 600;
+}
+
+.client-table td small {
+    display: block;
+    margin-top: 5px;
+    color: var(--client-muted);
+    font-size: 10px;
+}
+
+.client-segment {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid var(--client-line);
+    border-radius: 20px;
+    background: #f8f4ed;
+    color: #6f5945;
+    font-size: 10px;
+}
+
+.client-action {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--client-line);
+    border-radius: 4px;
+    color: var(--client-brown);
+    font-size: 11px;
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.client-action:hover {
+    background: var(--client-pale);
+}
+
+.client-empty {
+    padding: 38px 20px !important;
+    color: var(--client-muted);
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .client-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .client-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .client-directory {
+        padding: 17px;
+    }
+
+    .client-directory-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .client-search {
+        flex-wrap: wrap;
+    }
+
+    .client-search input {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .client-stat-card {
+        padding: 17px;
+    }
+
+    .client-heading h1 {
+        font-size: 31px;
+    }
+
+    .client-directory-heading h2 {
+        font-size: 24px;
+    }
+}
