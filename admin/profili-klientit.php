@@ -39,7 +39,7 @@ $initialet = mb_strtoupper(
 $mesazhi = '';
 $gabimi = '';
 
-// Ruajtja e shënimeve
+// ruatja e shenimeve
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $shenime = trim((string) ($_POST['shenime'] ?? ''));
 
@@ -69,7 +69,7 @@ $stmt->execute([$id]);
 $shenimet = $stmt->fetchColumn();
 $shenimet = $shenimet === false ? '' : $shenimet;
 
-// Historiku i termineve
+// historiku i termineve
 $stmt = $pdo->prepare(
     "SELECT t.termin_id, t.data, t.ora, t.statusi,
             s.emri AS sherbimi, s.cmimi,
@@ -83,7 +83,7 @@ $stmt = $pdo->prepare(
 $stmt->execute([$id]);
 $terminet = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Statistikat
+// statistikat
 $totalTermine = count($terminet);
 $perfunduar = 0;
 
