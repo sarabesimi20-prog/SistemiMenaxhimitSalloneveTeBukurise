@@ -1,8 +1,3 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
---
--- Host: localhost    Database: salloni_bukuris
--- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,12 +9,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `administratoret`
---
-
-DROP TABLE IF EXISTS `administratoret`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `administratoret` (
@@ -32,14 +21,8 @@ CREATE TABLE `administratoret` (
   `krijuar_me` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `aktivitetet`
---
-
-DROP TABLE IF EXISTS `aktivitetet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `aktivitetet` (
@@ -55,12 +38,6 @@ CREATE TABLE `aktivitetet` (
   KEY `idx_aktivitet_user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `klient_shenime`
---
-
-DROP TABLE IF EXISTS `klient_shenime`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `klient_shenime` (
@@ -72,14 +49,8 @@ CREATE TABLE `klient_shenime` (
   PRIMARY KEY (`shenim_id`),
   UNIQUE KEY `klient_id` (`klient_id`),
   CONSTRAINT `fk_shenime_klient` FOREIGN KEY (`klient_id`) REFERENCES `klientet` (`klient_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `klientet`
---
-
-DROP TABLE IF EXISTS `klientet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `klientet` (
@@ -91,14 +62,8 @@ CREATE TABLE `klientet` (
   `adresa` varchar(255) DEFAULT NULL,
   `data_regjistrimit` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`klient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `konfigurimet_studios`
---
-
-DROP TABLE IF EXISTS `konfigurimet_studios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `konfigurimet_studios` (
@@ -116,12 +81,6 @@ CREATE TABLE `konfigurimet_studios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `kuponet`
---
-
-DROP TABLE IF EXISTS `kuponet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `kuponet` (
@@ -137,12 +96,6 @@ CREATE TABLE `kuponet` (
   UNIQUE KEY `kodi` (`kodi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `levizjet_stokut`
---
-
-DROP TABLE IF EXISTS `levizjet_stokut`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `levizjet_stokut` (
@@ -157,12 +110,6 @@ CREATE TABLE `levizjet_stokut` (
   CONSTRAINT `levizjet_stokut_ibfk_1` FOREIGN KEY (`produkt_id`) REFERENCES `produktet` (`produkt_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `mungesat_stafit`
---
-
-DROP TABLE IF EXISTS `mungesat_stafit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mungesat_stafit` (
@@ -175,12 +122,6 @@ CREATE TABLE `mungesat_stafit` (
   PRIMARY KEY (`mungesa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `njoftimet`
---
-
-DROP TABLE IF EXISTS `njoftimet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `njoftimet` (
@@ -195,12 +136,6 @@ CREATE TABLE `njoftimet` (
   KEY `idx_njoftim_user_lexuar` (`user_id`,`lexuar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `orari_punes`
---
-
-DROP TABLE IF EXISTS `orari_punes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `orari_punes` (
@@ -212,14 +147,8 @@ CREATE TABLE `orari_punes` (
   `aktiv` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`orari_id`),
   UNIQUE KEY `uq_staf_dite` (`staf_id`,`dita_javes`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `pagesa`
---
-
-DROP TABLE IF EXISTS `pagesa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pagesa` (
@@ -235,14 +164,8 @@ CREATE TABLE `pagesa` (
   KEY `idx_pagesa_termin` (`termin_id`),
   KEY `idx_pagesa_status` (`statusi`),
   KEY `idx_pagesa_data` (`data_pageses`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `produktet`
---
-
-DROP TABLE IF EXISTS `produktet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `produktet` (
@@ -260,12 +183,6 @@ CREATE TABLE `produktet` (
   KEY `idx_produkt_emri` (`emri`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `promocionet`
---
-
-DROP TABLE IF EXISTS `promocionet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `promocionet` (
@@ -280,12 +197,6 @@ CREATE TABLE `promocionet` (
   PRIMARY KEY (`promocion_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `sherbimet`
---
-
-DROP TABLE IF EXISTS `sherbimet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sherbimet` (
@@ -296,14 +207,8 @@ CREATE TABLE `sherbimet` (
   `kategoria` varchar(100) DEFAULT NULL,
   `kohezgjatja_min` int(11) DEFAULT NULL,
   PRIMARY KEY (`sherbim_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `shpenzimet`
---
-
-DROP TABLE IF EXISTS `shpenzimet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `shpenzimet` (
@@ -317,14 +222,8 @@ CREATE TABLE `shpenzimet` (
   `krijuar_me` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`shpenzim_id`),
   KEY `idx_shpenzime_data` (`data_shpenzimit`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `stafi`
---
-
-DROP TABLE IF EXISTS `stafi`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stafi` (
@@ -338,14 +237,8 @@ CREATE TABLE `stafi` (
   `data_punesimit` date DEFAULT NULL,
   `statusi` enum('Aktive','Joaktive') NOT NULL DEFAULT 'Aktive',
   PRIMARY KEY (`staf_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `terminet`
---
-
-DROP TABLE IF EXISTS `terminet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `terminet` (
@@ -363,14 +256,8 @@ CREATE TABLE `terminet` (
   CONSTRAINT `fk_termin_klient` FOREIGN KEY (`klient_id`) REFERENCES `klientet` (`klient_id`),
   CONSTRAINT `fk_termin_sherbim` FOREIGN KEY (`sherbim_id`) REFERENCES `sherbimet` (`sherbim_id`),
   CONSTRAINT `fk_termin_staf` FOREIGN KEY (`staf_id`) REFERENCES `stafi` (`staf_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
@@ -386,12 +273,6 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `vleresimet`
---
-
-DROP TABLE IF EXISTS `vleresimet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vleresimet` (
@@ -407,10 +288,6 @@ CREATE TABLE `vleresimet` (
   KEY `idx_vleresim_klient` (`klient_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping routines for database 'salloni_bukuris'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -421,4 +298,3 @@ CREATE TABLE `vleresimet` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-28 23:33:52
