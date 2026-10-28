@@ -63,7 +63,7 @@ try {
             exit;
         }
 
-        /* REGJISTRIMI DHE NDRYSHIMI I PUNONJËSIT */
+        /* regjistrimi dhe ndryshimi i punojsit */
         if ($action === 'shto' || $action === 'ndrysho') {
             $showForm = true;
 
@@ -181,7 +181,7 @@ try {
                 }
             }
 
-            /* NGARKIMI I FOTOGRAFISË */
+            /* ngarkimi i fotos */
             $fotoPath = $fotoAktuale;
 
             if (
@@ -322,7 +322,7 @@ try {
         }
     }
 
-    /* MARRJA E TË DHËNAVE PËR NDRYSHIM */
+    /* marrja e te dhenave per ndryshim*/
     if (isset($_GET['edit'])) {
         $id = filter_var(
             $_GET['edit'],
@@ -352,7 +352,7 @@ try {
     $error = 'Ndodhi një gabim. Kontrollo të dhënat dhe provo përsëri.';
 }
 
-/* KËRKIMI DHE FILTRIMI */
+
 $search = trim($_GET['kerko'] ?? '');
 $statusFilter = $_GET['status'] ?? 'te_gjithe';
 $sort = $_GET['rendit'] ?? 'ri';
@@ -620,7 +620,7 @@ h1 {
     background: var(--pale);
 }
 
-/* STATISTIKAT */
+
 .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -685,7 +685,7 @@ h1 {
     border-color: #efd2ca;
 }
 
-/* FORMULARI */
+
 .panel {
     margin-bottom: 22px;
     padding: 22px;
@@ -804,7 +804,7 @@ h1 {
     max-width: 205px;
 }
 
-/* KARTELAT E STAFIT */
+
 .staff-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
