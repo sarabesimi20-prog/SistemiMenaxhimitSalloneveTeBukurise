@@ -2,7 +2,7 @@
 
 
 
-## Raporti Teknik 1 : 
+## RAPORTI TEKNIK 1 : 
 
 
 
