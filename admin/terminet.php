@@ -1363,7 +1363,7 @@ $totalAnuluar = (int) $pdo->query(
 </div>
 
 <script>
-    // Shfaq çmimin dhe kohëzgjatjen e shërbimit të zgjedhur.
+    // Shfaq çmimin dhe kohezgjatjen e sherbimit te zgjedhur.
     const serviceSelect = document.getElementById('sherbim_id');
     const serviceInfo = document.getElementById('serviceInfo');
 
