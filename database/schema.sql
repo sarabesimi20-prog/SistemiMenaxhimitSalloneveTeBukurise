@@ -35,7 +35,8 @@ CREATE TABLE `aktivitetet` (
   `krijuar_me` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`aktivitet_id`),
   KEY `idx_aktivitet_data` (`krijuar_me`),
-  KEY `idx_aktivitet_user` (`user_id`)
+  KEY `idx_aktivitet_user` (`user_id`),
+  CONSTRAINT `fk_aktivitetet_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -119,7 +120,9 @@ CREATE TABLE `mungesat_stafit` (
   `data_mbarimit` datetime NOT NULL,
   `arsye` varchar(255) DEFAULT NULL,
   `statusi` enum('ne_pritje','miratuar','refuzuar') NOT NULL DEFAULT 'ne_pritje',
-  PRIMARY KEY (`mungesa_id`)
+  PRIMARY KEY (`mungesa_id`),
+  KEY `fk_mungesa_staf` (`staf_id`),
+  CONSTRAINT `fk_mungesa_staf` FOREIGN KEY (`staf_id`) REFERENCES `stafi` (`staf_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -133,7 +136,8 @@ CREATE TABLE `njoftimet` (
   `lexuar` tinyint(1) NOT NULL DEFAULT 0,
   `krijuar_me` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`njoftim_id`),
-  KEY `idx_njoftim_user_lexuar` (`user_id`,`lexuar`)
+  KEY `idx_njoftim_user_lexuar` (`user_id`,`lexuar`),
+  CONSTRAINT `fk_njoftimet_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -146,7 +150,8 @@ CREATE TABLE `orari_punes` (
   `ora_mbarimit` time NOT NULL,
   `aktiv` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`orari_id`),
-  UNIQUE KEY `uq_staf_dite` (`staf_id`,`dita_javes`)
+  UNIQUE KEY `uq_staf_dite` (`staf_id`,`dita_javes`),
+  CONSTRAINT `fk_orari_staf` FOREIGN KEY (`staf_id`) REFERENCES `stafi` (`staf_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -163,7 +168,8 @@ CREATE TABLE `pagesa` (
   PRIMARY KEY (`pagesa_id`),
   KEY `idx_pagesa_termin` (`termin_id`),
   KEY `idx_pagesa_status` (`statusi`),
-  KEY `idx_pagesa_data` (`data_pageses`)
+  KEY `idx_pagesa_data` (`data_pageses`),
+  CONSTRAINT `fk_pagesa_termin` FOREIGN KEY (`termin_id`) REFERENCES `terminet` (`termin_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -270,7 +276,9 @@ CREATE TABLE `users` (
   `statusi` enum('aktiv','joaktiv') NOT NULL DEFAULT 'aktiv',
   `krijuar_me` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY `email` (`email`)
+  UNIQUE KEY `email` (`email`),
+  KEY `fk_users_staf` (`staf_id`),
+  CONSTRAINT `fk_users_staf` FOREIGN KEY (`staf_id`) REFERENCES `stafi` (`staf_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -285,7 +293,9 @@ CREATE TABLE `vleresimet` (
   `krijuar_me` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`vleresim_id`),
   KEY `idx_vleresim_termin` (`termin_id`),
-  KEY `idx_vleresim_klient` (`klient_id`)
+  KEY `idx_vleresim_klient` (`klient_id`),
+  CONSTRAINT `fk_vleresimet_klient` FOREIGN KEY (`klient_id`) REFERENCES `klientet` (`klient_id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_vleresimet_termin` FOREIGN KEY (`termin_id`) REFERENCES `terminet` (`termin_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
