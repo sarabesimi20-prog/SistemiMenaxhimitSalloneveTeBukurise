@@ -2,4 +2,4 @@
 
 
 
-# Tema e projektit : Sistem menaxhimi te salloneve te bukurise
+ Tema e projektit : Sistem menaxhimi te salloneve te bukurise
