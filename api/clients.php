@@ -138,7 +138,7 @@ function validateClient(array $data, array $existing = []): array
     if (
         mb_strlen($emri) > 100 ||
         mb_strlen($mbiemri) > 100 ||
-        mb_strlen($telefoni) > 20 ||
+        mb_strlen($telefoni) > 30 ||
         mb_strlen($email) > 150 ||
         mb_strlen($adresa) > 255
     ) {
