@@ -224,6 +224,50 @@ Dokumentimi i progresit dhe ruajtja e ndryshimeve në GitHub.
 
 
 
+## Raporti Teknik 2 – Databaza, Backend-i dhe API
+
+### Teknologjitë e përdorura
+
+| Teknologjia | Përshkrimi |
+|---|---|
+| MySQL / MariaDB | Menaxhimi i databazës |
+| PHP | Zhvillimi i Backend-it |
+| PDO | Lidhja me databazën |
+| JSON | Shkëmbimi i të dhënave |
+| Postman | Testimi i API-së |
+| phpMyAdmin | Administrimi i databazës |
+
+### Implementimi
+
+| Nr. | Komponenti | Përshkrimi |
+|:---:|---|---|
+| 1 | Databaza | 19 tabela dhe relacione ndërmjet tyre |
+| 2 | Backend | Organizimi në Controller, Service dhe Repository |
+| 3 | CRUD | Krijimi, leximi, përditësimi dhe fshirja e klientëve |
+| 4 | API | Endpoint-i `api/clients.php` |
+| 5 | Validimi | Kontrollimi i të dhënave hyrëse |
+| 6 | Siguria | Autentikimi, CSRF dhe PDO Prepared Statements |
+| 7 | Testimi | Testimi i API-së përmes Postman |
+
+### Metodat HTTP të API-së
+
+| Metoda | Funksionaliteti |
+|---|---|
+| `GET` | Shfaqja e klientëve |
+| `POST` | Regjistrimi i klientëve |
+| `PATCH` | Përditësimi i klientëve |
+| `DELETE` | Fshirja e klientëve |
+
+### Dokumentacioni
+
+- [Raporti Teknik 1](docs/raporti-teknik-1.md)
+- [Raporti Teknik 2](docs/raporti-teknik-2.md)
+
+
+
+
+
+
 
 
 
