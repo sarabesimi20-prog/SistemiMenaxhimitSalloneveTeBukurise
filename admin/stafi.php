@@ -19,6 +19,13 @@ $form = [
     'foto' => '',
     'pozita' => '',
     'data_punesimit' => '',
+    'biografia' => '',
+    'vitet_pervojes' => '',
+    'specializimet' => '',
+    'certifikimet' => '',
+    'trajnimet' => '',
+    'gjuhet' => '',
+    'filozofia_punes' => '',
     'statusi' => 'Aktive'
 ];
 
@@ -63,10 +70,9 @@ try {
             exit;
         }
 
-        /* regjistrimi dhe ndryshimi i punojsit */
+        /* REGJISTRIMI DHE NDRYSHIMI I PUNONJËSIT */
         if ($action === 'shto' || $action === 'ndrysho') {
             $showForm = true;
-
             $isEdit = $action === 'ndrysho';
 
             $form = [
@@ -77,9 +83,14 @@ try {
                 'email' => trim($_POST['email'] ?? ''),
                 'foto' => '',
                 'pozita' => trim($_POST['pozita'] ?? ''),
-                'data_punesimit' => trim(
-                    $_POST['data_punesimit'] ?? ''
-                ),
+                'data_punesimit' => trim($_POST['data_punesimit'] ?? ''),
+                'biografia' => trim($_POST['biografia'] ?? ''),
+                'vitet_pervojes' => trim($_POST['vitet_pervojes'] ?? ''),
+                'specializimet' => trim($_POST['specializimet'] ?? ''),
+                'certifikimet' => trim($_POST['certifikimet'] ?? ''),
+                'trajnimet' => trim($_POST['trajnimet'] ?? ''),
+                'gjuhet' => trim($_POST['gjuhet'] ?? ''),
+                'filozofia_punes' => trim($_POST['filozofia_punes'] ?? ''),
                 'statusi' => $_POST['statusi'] ?? 'Aktive'
             ];
 
@@ -103,7 +114,6 @@ try {
                 );
 
                 $stmt->execute(['id' => $id]);
-
                 $existing = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if (!$existing) {
@@ -146,14 +156,25 @@ try {
 
             if (
                 $form['email'] !== '' &&
-                !filter_var(
-                    $form['email'],
-                    FILTER_VALIDATE_EMAIL
-                )
+                !filter_var($form['email'], FILTER_VALIDATE_EMAIL)
             ) {
                 throw new RuntimeException(
                     'Adresa e emailit nuk është valide.'
                 );
+            }
+
+            if ($form['vitet_pervojes'] !== '') {
+                if (
+                    !ctype_digit($form['vitet_pervojes']) ||
+                    (int)$form['vitet_pervojes'] > 65535
+                ) {
+                    throw new RuntimeException(
+                        'Vitet e përvojës duhet të jenë numër i plotë pozitiv.'
+                    );
+                }
+
+                $form['vitet_pervojes'] =
+                    (string)(int)$form['vitet_pervojes'];
             }
 
             if (!in_array(
@@ -172,8 +193,7 @@ try {
 
                 if (
                     !$date ||
-                    $date->format('Y-m-d') !==
-                    $form['data_punesimit']
+                    $date->format('Y-m-d') !== $form['data_punesimit']
                 ) {
                     throw new RuntimeException(
                         'Data e punësimit nuk është valide.'
@@ -181,7 +201,7 @@ try {
                 }
             }
 
-            /* ngarkimi i fotos */
+            /* NGARKIMI I FOTOGRAFISË */
             $fotoPath = $fotoAktuale;
 
             if (
@@ -262,48 +282,27 @@ try {
                     ? $fotoPath : null,
                 'pozita' => $form['pozita'] !== ''
                     ? $form['pozita'] : null,
-                'data_punesimit' =>
-                    $form['data_punesimit'] !== ''
+                'data_punesimit' => $form['data_punesimit'] !== ''
                     ? $form['data_punesimit'] : null,
+                'biografia' => $form['biografia'] !== ''
+                    ? $form['biografia'] : null,
+                'vitet_pervojes' => $form['vitet_pervojes'] !== ''
+                    ? (int)$form['vitet_pervojes'] : null,
+                'specializimet' => $form['specializimet'] !== ''
+                    ? $form['specializimet'] : null,
+                'certifikimet' => $form['certifikimet'] !== ''
+                    ? $form['certifikimet'] : null,
+                'trajnimet' => $form['trajnimet'] !== ''
+                    ? $form['trajnimet'] : null,
+                'gjuhet' => $form['gjuhet'] !== ''
+                    ? $form['gjuhet'] : null,
+                'filozofia_punes' => $form['filozofia_punes'] !== ''
+                    ? $form['filozofia_punes'] : null,
                 'statusi' => $form['statusi']
             ];
 
-            if ($action === 'shto') {
-                $stmt = $pdo->prepare(
-                    'INSERT INTO stafi
-                    (
-                        emri,
-                        mbiemri,
-                        telefoni,
-                        email,
-                        foto,
-                        pozita,
-                        data_punesimit,
-                        statusi
-                    )
-                    VALUES
-                    (
-                        :emri,
-                        :mbiemri,
-                        :telefoni,
-                        :email,
-                        :foto,
-                        :pozita,
-                        :data_punesimit,
-                        :statusi
-                    )'
-                );
-
-                $stmt->execute($data);
-
-                header('Location: stafi.php?mesazh=shtuar');
-                exit;
-            }
-
-            $data['id'] = $id;
-
-            $stmt = $pdo->prepare(
-                'UPDATE stafi SET
+            if ($isEdit) {
+                $sql = "UPDATE stafi SET
                     emri = :emri,
                     mbiemri = :mbiemri,
                     telefoni = :telefoni,
@@ -311,121 +310,122 @@ try {
                     foto = :foto,
                     pozita = :pozita,
                     data_punesimit = :data_punesimit,
+                    biografia = :biografia,
+                    vitet_pervojes = :vitet_pervojes,
+                    specializimet = :specializimet,
+                    certifikimet = :certifikimet,
+                    trajnimet = :trajnimet,
+                    gjuhet = :gjuhet,
+                    filozofia_punes = :filozofia_punes,
                     statusi = :statusi
-                 WHERE staf_id = :id'
-            );
+                    WHERE staf_id = :staf_id";
 
-            $stmt->execute($data);
+                $data['staf_id'] = $id;
 
-            header('Location: stafi.php?mesazh=ndryshuar');
-            exit;
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute($data);
+
+                header('Location: stafi.php?mesazh=ndryshuar');
+                exit;
+            } else {
+                $sql = "INSERT INTO stafi (
+                    emri, mbiemri, telefoni, email, foto, pozita,
+                    data_punesimit, biografia, vitet_pervojes,
+                    specializimet, certifikimet, trajnimet, gjuhet,
+                    filozofia_punes, statusi
+                ) VALUES (
+                    :emri, :mbiemri, :telefoni, :email, :foto, :pozita,
+                    :data_punesimit, :biografia, :vitet_pervojes,
+                    :specializimet, :certifikimet, :trajnimet, :gjuhet,
+                    :filozofia_punes, :statusi
+                )";
+
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute($data);
+
+                header('Location: stafi.php?mesazh=shtuar');
+                exit;
+            }
         }
     }
 
-    /* marrja e te dhenave per ndryshim*/
+    /* NGARKO TË DHËNAT PËR EDITIM */
     if (isset($_GET['edit'])) {
-        $id = filter_var(
-            $_GET['edit'],
-            FILTER_VALIDATE_INT
-        );
+        $editId = filter_var($_GET['edit'], FILTER_VALIDATE_INT);
 
-        if ($id && $id > 0) {
+        if ($editId && $editId > 0) {
             $stmt = $pdo->prepare(
                 'SELECT * FROM stafi WHERE staf_id = :id'
             );
 
-            $stmt->execute(['id' => $id]);
+            $stmt->execute(['id' => $editId]);
+            $editPerson = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $existing = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($existing) {
-                $form = array_merge($form, $existing);
+            if ($editPerson) {
+                $form = array_merge($form, $editPerson);
                 $showForm = true;
+            } else {
+                $error = 'Punonjësi nuk u gjet.';
             }
         }
     }
-} catch (RuntimeException $e) {
-    $error = $e->getMessage();
-} catch (PDOException $e) {
-    $error = 'Gabim në databazë. Kontrollo tabelën stafi.';
-} catch (Throwable $e) {
-    $error = 'Ndodhi një gabim. Kontrollo të dhënat dhe provo përsëri.';
-}
 
-
-$search = trim($_GET['kerko'] ?? '');
-$statusFilter = $_GET['status'] ?? 'te_gjithe';
-$sort = $_GET['rendit'] ?? 'ri';
-
-$stats = [
-    'total' => 0,
-    'aktive' => 0,
-    'joaktive' => 0,
-    'te_ri' => 0
-];
-
-try {
-    $stmt = $pdo->query(
-        "SELECT
+    /* STATISTIKAT */
+    $statsQuery = $pdo->query("
+        SELECT
             COUNT(*) AS total,
             SUM(statusi = 'Aktive') AS aktive,
             SUM(statusi = 'Joaktive') AS joaktive,
             SUM(
-                data_punesimit >=
-                DATE_FORMAT(CURDATE(), '%Y-%m-01')
-                AND data_punesimit <
-                DATE_FORMAT(
-                    CURDATE() + INTERVAL 1 MONTH,
-                    '%Y-%m-01'
-                )
+                MONTH(data_punesimit) = MONTH(CURRENT_DATE())
+                AND YEAR(data_punesimit) = YEAR(CURRENT_DATE())
             ) AS te_ri
-         FROM stafi"
-    );
+        FROM stafi
+    ");
 
-    $stats = $stmt->fetch(PDO::FETCH_ASSOC) ?: $stats;
+    $stats = $statsQuery->fetch(PDO::FETCH_ASSOC);
 
-    $orderOptions = [
-        'ri' => 'staf_id DESC',
-        'emri' => 'emri ASC, mbiemri ASC',
-        'pozita' => 'pozita ASC, emri ASC',
-        'punesimi' => 'data_punesimit DESC, staf_id DESC'
-    ];
-
-    $orderBy = $orderOptions[$sort] ?? $orderOptions['ri'];
-
-    $sql = 'SELECT
-                staf_id, emri, mbiemri, telefoni,
-                email, foto, pozita, data_punesimit, statusi
-            FROM stafi';
+    /* KËRKIMI DHE FILTRIMI */
+    $search = trim($_GET['kerko'] ?? '');
+    $statusFilter = $_GET['status'] ?? 'te_gjithe';
+    $sort = $_GET['rendit'] ?? 'ri';
 
     $where = [];
     $params = [];
 
     if ($search !== '') {
-        $where[] = '(
-            emri LIKE :q1
-            OR mbiemri LIKE :q2
-            OR telefoni LIKE :q3
-            OR email LIKE :q4
-            OR pozita LIKE :q5
-        )';
+        $where[] = "(
+            emri LIKE :search OR
+            mbiemri LIKE :search OR
+            telefoni LIKE :search OR
+            email LIKE :search OR
+            pozita LIKE :search
+        )";
 
-        $q = '%' . $search . '%';
-
-        $params = [
-            'q1' => $q,
-            'q2' => $q,
-            'q3' => $q,
-            'q4' => $q,
-            'q5' => $q
-        ];
+        $params['search'] = '%' . $search . '%';
     }
 
     if ($statusFilter === 'aktive') {
         $where[] = "statusi = 'Aktive'";
     } elseif ($statusFilter === 'joaktive') {
         $where[] = "statusi = 'Joaktive'";
+    } else {
+        $statusFilter = 'te_gjithe';
     }
+
+    $orderBy = 'staf_id DESC';
+
+    if ($sort === 'emri') {
+        $orderBy = 'emri ASC, mbiemri ASC';
+    } elseif ($sort === 'pozita') {
+        $orderBy = 'pozita ASC';
+    } elseif ($sort === 'punesimi') {
+        $orderBy = 'data_punesimit DESC';
+    } else {
+        $sort = 'ri';
+    }
+
+    $sql = 'SELECT * FROM stafi';
 
     if ($where) {
         $sql .= ' WHERE ' . implode(' AND ', $where);
@@ -620,7 +620,6 @@ h1 {
     background: var(--pale);
 }
 
-
 .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -684,7 +683,6 @@ h1 {
     background: #f9ebe7;
     border-color: #efd2ca;
 }
-
 
 .panel {
     margin-bottom: 22px;
@@ -803,7 +801,6 @@ h1 {
 .filter-select {
     max-width: 205px;
 }
-
 
 .staff-grid {
     display: grid;
@@ -1242,6 +1239,85 @@ h1 {
                         type="date"
                         value="<?= h($form['data_punesimit'] ?? '') ?>"
                     >
+                </div>
+
+                <div class="field">
+                    <label for="vitet_pervojes">Vitet e përvojës</label>
+                    <input
+                        id="vitet_pervojes"
+                        name="vitet_pervojes"
+                        type="number"
+                        min="0"
+                        max="65535"
+                        value="<?= h($form['vitet_pervojes'] ?? '') ?>"
+                        placeholder="P.sh. 5"
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="specializimet">Specializimet</label>
+                    <textarea
+                        id="specializimet"
+                        name="specializimet"
+                        rows="3"
+                        placeholder="P.sh. Manikyr, pedikyr, nail art..."
+                        style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:5px;font:13px inherit;resize:vertical"
+                    ><?= h($form['specializimet'] ?? '') ?></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="certifikimet">Certifikimet</label>
+                    <textarea
+                        id="certifikimet"
+                        name="certifikimet"
+                        rows="3"
+                        placeholder="Shëno certifikatat profesionale..."
+                        style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:5px;font:13px inherit;resize:vertical"
+                    ><?= h($form['certifikimet'] ?? '') ?></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="trajnimet">Trajnimet</label>
+                    <textarea
+                        id="trajnimet"
+                        name="trajnimet"
+                        rows="3"
+                        placeholder="Shëno trajnimet e përfunduara..."
+                        style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:5px;font:13px inherit;resize:vertical"
+                    ><?= h($form['trajnimet'] ?? '') ?></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="gjuhet">Gjuhët</label>
+                    <input
+                        id="gjuhet"
+                        name="gjuhet"
+                        maxlength="255"
+                        value="<?= h($form['gjuhet'] ?? '') ?>"
+                        placeholder="P.sh. Shqip, Anglisht, Gjermanisht"
+                    >
+                </div>
+
+                <div class="field" style="grid-column:1 / -1">
+                    <label for="biografia">Biografia</label>
+                    <textarea
+                        id="biografia"
+                        name="biografia"
+                        rows="5"
+                        placeholder="Përshkruaj shkurtimisht përvojën dhe rrugëtimin profesional të punonjësit..."
+                        style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:5px;font:13px inherit;resize:vertical"
+                    ><?= h($form['biografia'] ?? '') ?></textarea>
+                </div>
+
+                <div class="field" style="grid-column:1 / -1">
+                    <label for="filozofia_punes">Filozofia e punës</label>
+                    <textarea
+                        id="filozofia_punes"
+                        name="filozofia_punes"
+                        rows="4"
+                        placeholder="Cila është qasja dhe filozofia e punonjësit ndaj klientëve dhe shërbimit?"
+                        style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:5px;font:13px inherit;resize:vertical"
+                    ><?= h($form['filozofia_punes'] ?? '') ?></textarea>
                 </div>
 
                 <div class="field">
