@@ -388,24 +388,8 @@ Repository i projektit:
 
 [https://github.com/sarabesimi20-prog/SistemiMenaxhimitSalloneveTeBukurise](https://github.com/sarabesimi20-prog/SistemiMenaxhimitSalloneveTeBukurise)
 
-Nga historiku i commit-eve mund të identifikohen fazat e ndryshme të zhvillimit.
-
-| Data | Commit / Aktiviteti |
-|---|---|
-| 21.10.2026 | Add initial frontend structure |
-| 28.10.2026 | Update clients page |
-| 28.10.2026 | Update services page |
-| 28.10.2026 | Update staff page |
-| 28.10.2026 | Add database schema |
-| 29.10.2026 | Update database schema and relationships |
-| 01.11.2026 | Add client to API |
-| 02.11.2026 | Përditësimet e Raportit Teknik 2 |
-| 03.11.2026 | Update client API |
-| 04.11.2026 | Bashkimi i ndryshimeve lokale dhe përditësimi i dokumentacionit |
-
 Historiku i Git tregon zhvillimin gradual të projektit, përditësimin e faqeve administrative, zgjerimin e strukturës së databazës dhe zhvillimin e dokumentacionit teknik.
 
-Kodi burimor vazhdon të menaxhohet në repository-n e projektit.
 
 # 8. Pamjet e aplikacionit dhe demonstrimi funksional
 
