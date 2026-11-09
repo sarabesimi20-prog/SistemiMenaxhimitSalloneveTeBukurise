@@ -258,10 +258,32 @@ Dokumentimi i progresit dhe ruajtja e ndryshimeve në GitHub.
 | `PATCH` | Përditësimi i klientëve |
 | `DELETE` | Fshirja e klientëve |
 
+
+## Raporti Teknik 3 – Frontend-i, Integrimi dhe Progresi Funksional
+
+Raporti Teknik 3 paraqet fazën e zhvillimit të ndërfaqes së përdoruesit (**Frontend**) dhe integrimin e saj me **Backend-in** dhe databazën **MySQL** në projektin **LUMIÈRE Beauty Studio**.
+
+### Funksionalitetet e realizuara
+
+- Zhvillimi i faqeve kryesore: Ballina, Shërbimet, Ekipi, Galeria dhe Kontakti.
+- Implementimi i formularit për rezervimin e termineve.
+- Integrimi i Frontend-it me Backend-in përmes PHP.
+- Regjistrimi i klientëve dhe ruajtja e rezervimeve në MySQL.
+- Menaxhimi i termineve përmes panelit të administratorit.
+- Shikimi dhe anulimi i rezervimeve nga klientët.
+- Trajtimi i gabimeve dhe validimi i të dhënave.
+
+### Përmbajtja e raportit
+
+Raporti dokumenton arkitekturën e Frontend-it, integrimin **Frontend–Backend–Database**, demonstrimin e proceseve kryesore funksionale, analizën e kodit (**Code Review**), menaxhimin e versioneve përmes Git dhe progresin e projektit drejt versionit **Beta**.
+
+
+
 ### Dokumentacioni
 
 - [Raporti Teknik 1](docs/raporti-teknik-1.md)
 - [Raporti Teknik 2](docs/raporti-teknik-2.md)
+- [Raporti Teknik 3](docs/raporti-teknik-3.md)
 
 
 
