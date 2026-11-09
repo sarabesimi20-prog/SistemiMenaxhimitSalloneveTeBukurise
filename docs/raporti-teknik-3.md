@@ -411,41 +411,15 @@ Kodi burimor vazhdon të menaxhohet në repository-n e projektit.
 
 Në këtë pjesë paraqiten pamjet e aplikacionit që dëshmojnë funksionalitetet e realizuara.
 
-## 8.1. Faqja publike e rezervimit
 
-**[SHTO SCREENSHOT – booking.php]**
 
-*Figura 1. Formulari publik për rezervimin e një termini.*
 
-## 8.2. Rezervimi i krijuar me sukses
 
-**[SHTO SCREENSHOT – Mesazhi i suksesit pas rezervimit]**
 
-*Figura 2. Konfirmimi i krijimit të rezervimit.*
 
-## 8.3. Paneli administrativ i termineve
 
-**[SHTO SCREENSHOT – admin/terminet.php]**
 
-*Figura 3. Paraqitja dhe menaxhimi i rezervimeve nga administratori.*
 
-## 8.4. Përditësimi i statusit
-
-**[SHTO SCREENSHOT – Statusi Konfirmuar në panelin administrativ]**
-
-*Figura 4. Përditësimi i statusit të rezervimit nga administratori.*
-
-## 8.5. Rezervimet e mia
-
-**[SHTO SCREENSHOT – frontend/my-bookings.php]**
-
-*Figura 5. Paraqitja e rezervimeve të klientit dhe statusit aktual.*
-
-## 8.6. Anulimi i rezervimit
-
-**[SHTO SCREENSHOT – Rezervimi me status Anuluar]**
-
-*Figura 6. Paraqitja e rezervimit të anuluar.*
 
 # 9. Progresi i projektit dhe hapat drejt versionit Beta
 
