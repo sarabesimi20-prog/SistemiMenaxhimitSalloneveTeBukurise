@@ -1,6 +1,13 @@
 # Tema : Sistemi per Menaxhimin e Salloneve te Bukurise
 
 
+### Raportet Teknike
+
+- [Raporti Teknik 1](docs/raporti-teknik-1.md)
+- [Raporti Teknik 2](docs/raporti-teknik-2.md)
+- [Raporti Teknik 3](docs/raporti-teknik-3.md)
+
+
 
 ## RAPORTI TEKNIK 1 : 
 
@@ -279,11 +286,7 @@ Raporti dokumenton arkitekturën e Frontend-it, integrimin **Frontend–Backend�
 
 
 
-### Dokumentacioni
 
-- [Raporti Teknik 1](docs/raporti-teknik-1.md)
-- [Raporti Teknik 2](docs/raporti-teknik-2.md)
-- [Raporti Teknik 3](docs/raporti-teknik-3.md)
 
 
 
